@@ -2,780 +2,529 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Najmat Al Sahel | Licensed Aluminium &amp; Copper Scrap Traders — Sharjah UAE</title>
-  <meta name="description" content="Najmat Al Sahel Alum &amp; Copper Scrap Trading LLC — Wholesale scrap metal trading house in Al Sajaa Industrial Area, Sharjah, UAE. Trade License No. 748232. Established 2016." />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Najmat Al Sahel | Aluminium &amp; Copper Scrap Trader, Sharjah</title>
+  <meta name="description" content="Licensed wholesale aluminium and copper scrap trader in Al Sajaa Industrial Area, Sharjah, since 2016. 1,800 m² yard with 20ft and 40ft FCL loading." />
+  <meta name="theme-color" content="#0E0F11" />
+  <meta name="color-scheme" content="dark" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Najmat Al Sahel — Licensed Scrap Metal Trading LLC" />
-  <meta property="og:description" content="Official scrap trading facility in Al Sajaa, Sharjah. Wholesale aluminium and copper scrap recycling." />
+  <link rel="canonical" href="https://najmatalsahelalum.com/" />
+  <link rel="alternate" hreflang="en" href="https://najmatalsahelalum.com/" />
+  <link rel="alternate" hreflang="ar" href="https://najmatalsahelalum.com/?lang=ar" />
+  <link rel="alternate" hreflang="x-default" href="https://najmatalsahelalum.com/" />
+
+  <!-- Open Graph / social -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://najmatalsahel.com" />
-  <link rel="canonical" href="https://najmatalsahel.com" />
+  <meta property="og:site_name" content="Najmat Al Sahel" />
+  <meta property="og:title" content="Najmat Al Sahel | Aluminium &amp; Copper Scrap. Traded Right." />
+  <meta property="og:description" content="Licensed wholesale scrap trader in Sharjah since 2016." />
+  <meta property="og:url" content="https://najmatalsahelalum.com/" />
+  <meta property="og:image" content="https://najmatalsahelalum.com/images/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Aluminium scrap staged at the Najmat Al Sahel yard, Sharjah" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ar_AE" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Typography & Styling -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+  <!-- Set language/direction before first paint to avoid a flash of the wrong layout -->
+  <script>
+    (function () {
+      try {
+        var q = new URLSearchParams(location.search).get('lang');
+        var lang = q === 'ar' || q === 'en' ? q : localStorage.getItem('nas-lang');
+        if (lang === 'ar') {
+          var r = document.documentElement;
+          r.lang = 'ar'; r.dir = 'rtl'; r.classList.add('i18n-pending');
+        }
+      } catch (e) {}
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" />
+
+  <link rel="preload" as="image" type="image/webp"
+        href="images/hero-tall-720.webp"
+        imagesrcset="images/hero-tall-720.webp 720w, images/hero-tall-1000.webp 1000w"
+        imagesizes="100vw" media="(max-width: 767px)" />
+  <link rel="preload" as="image" type="image/webp"
+        href="images/hero-wide-1308.webp"
+        imagesrcset="images/hero-wide-960.webp 960w, images/hero-wide-1308.webp 1308w"
+        imagesizes="100vw" media="(min-width: 768px)" />
+
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23B87333'/><polygon points='50,18 60,38 82,41 66,56 70,78 50,67 30,78 34,56 18,41 40,38' fill='white'/></svg>" type="image/svg+xml" />
-
-  <!-- Official Schema JSON-LD for Bank Compliance & KYC Verification -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "RecyclingCenter",
-    "name": "NAJMAT AL SAHEL ALUM & COPPER SCRAP TR LLC",
+    "@type": "LocalBusiness",
+    "@id": "https://najmatalsahelalum.com/#business",
+    "name": "Najmat Al Sahel Alum & Copper Scrap Trading LLC",
+    "legalName": "NAJMAT AL SAHEL ALUM & COPPER SCRAP TR LLC",
     "alternateName": "نجمة الساحل لتجارة خردة الألمنيوم والنحاس ذ.م.م",
-    "description": "Licensed wholesale trader of recycling metal scrap, aluminium and copper waste in Sharjah, UAE.",
-    "url": "https://najmatalsahel.com",
+    "description": "Licensed wholesale trader of aluminium and copper scrap and other non-ferrous metals in Sharjah, UAE.",
+    "url": "https://najmatalsahelalum.com/",
+    "image": "https://najmatalsahelalum.com/images/og.jpg",
+    "logo": "https://najmatalsahelalum.com/apple-touch-icon.png",
     "telephone": "+971567665019",
     "email": "najmatalsahelalumcopper@gmail.com",
     "foundingDate": "2016",
-    "numberOfEmployees": 16,
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Al Sajaa Industrial Area",
       "addressLocality": "Sharjah",
+      "addressRegion": "Sharjah",
       "addressCountry": "AE"
     },
-    "identifier": "Trade License No. 748232"
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=Al+Sajaa+Industrial+Area+Sharjah",
+    "contactPoint": [
+      { "@type": "ContactPoint", "telephone": "+971567665019", "contactType": "sales", "availableLanguage": ["English", "Arabic"] },
+      { "@type": "ContactPoint", "telephone": "+971527002411", "contactType": "sales", "availableLanguage": ["English", "Arabic"] },
+      { "@type": "ContactPoint", "telephone": "+97165796879", "contactType": "customer service" }
+    ],
+    "identifier": {
+      "@type": "PropertyValue",
+      "propertyID": "Sharjah Trade Licence",
+      "value": "748232"
+    },
+    "knowsAbout": ["Aluminium scrap", "Copper scrap", "Non-ferrous metal scrap"]
   }
   </script>
 </head>
 
 <body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
-  <!-- ==========================================================================
-       HEADER (Frosted Glassmorphism Light Navigation)
-       ========================================================================== -->
-  <header class="header">
-    <div class="container">
-      <div class="brand-wrap">
-        <a href="#home" class="brand-symbol" aria-label="Najmat Al Sahel Logo">
-          <svg viewBox="0 0 24 24">
-            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
-          </svg>
-        </a>
-        <div class="brand-title">
-          <span class="brand-name">NAJMAT AL SAHEL</span>
-          <span class="brand-tagline">Alum &amp; Copper Scrap Trading LLC</span>
-        </div>
-      </div>
+  <!-- ============================== HEADER ============================== -->
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a href="#top" class="brand" aria-label="Najmat Al Sahel, back to top" data-i18n-aria="brandAria">
+        <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2.5 14.8,8.6 21.5,9.3 16.5,13.8 17.9,20.4 12,17 6.1,20.4 7.5,13.8 2.5,9.3 9.2,8.6"/></svg>
+        <span class="brand-text">
+          <span class="brand-name" data-i18n="brand">Najmat Al Sahel</span>
+          <span class="brand-sub" data-i18n="brandSub">Alum &amp; Copper Scrap Tr. LLC</span>
+        </span>
+      </a>
 
-      <nav class="nav-menu" role="navigation">
-        <a href="#home" class="active">Home</a>
-        <a href="#materials">Materials</a>
-        <a href="#estimator">Estimator</a>
-        <a href="#compliance">Licensing</a>
-        <a href="#facility">Yard Facility</a>
-        <a href="#why-us">Why Us</a>
-        <a href="#contact">Contact</a>
+      <nav class="nav" id="site-nav" aria-label="Primary" data-i18n-aria="navAria">
+        <a href="#materials" data-i18n="navMaterials">Materials</a>
+        <a href="#estimator" data-i18n="navEstimator">Estimator</a>
+        <a href="#yard" data-i18n="navYard">Yard</a>
+        <a href="#compliance" data-i18n="navCompliance">Compliance</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
+        <a href="#contact" class="btn btn-copper nav-cta" data-quote data-i18n="ctaQuote">Request a Quote</a>
       </nav>
 
-      <div class="header-right">
-        <button class="lang-toggle" onclick="toggleLanguage()">العربية</button>
-        <a href="#contact" class="btn btn-copper">Request Quote</a>
-        <button class="hamburger-btn" aria-label="Toggle navigation menu">
-          <span></span><span></span><span></span>
+      <div class="header-actions">
+        <button type="button" class="lang-toggle" id="lang-toggle" lang="ar" aria-label="Switch to Arabic">العربية</button>
+        <a href="#contact" class="btn btn-copper btn-sm header-cta" data-quote data-i18n="ctaQuote">Request a Quote</a>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span></span><span></span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- ==========================================================================
-       HERO OPENING (Pinterest-Inspired Editorial Split & Layered Artboard)
-       ========================================================================== -->
-  <section id="home" class="hero-section">
-    <div class="container">
-      <div class="hero-grid">
-        
-        <!-- Left Editorial Content -->
-        <div class="hero-editorial">
-          <div class="hero-meta-row">
-            <span class="badge-pill">
-              <span class="pulse-dot"></span>
-              Sharjah DED License #748232
-            </span>
-            <span class="badge-pill" style="background:#FFFFFF; border-color:var(--border-light);">
-              Est. 2016 • Al Sajaa Yard
-            </span>
-          </div>
+  <main id="main">
 
-          <h1 class="hero-headline">
-            Wholesale <br/>
-            <span class="copper-sparkle">Aluminium &amp; Copper</span><br/>
-            Scrap Trading
-          </h1>
+    <!-- ============================== HERO ============================== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <picture class="hero-media">
+        <source media="(max-width: 767px)" type="image/webp"
+                srcset="images/hero-tall-720.webp 720w, images/hero-tall-1000.webp 1000w" sizes="100vw" />
+        <source type="image/webp"
+                srcset="images/hero-wide-960.webp 960w, images/hero-wide-1308.webp 1308w" sizes="100vw" />
+        <img src="images/hero-wide-1308.webp" alt="" width="1308" height="736" fetchpriority="high" decoding="async" />
+      </picture>
+      <div class="hero-shade" aria-hidden="true"></div>
 
-          <p class="hero-subhead">
-            Licensed UAE recycling &amp; non-ferrous metal scrap trading house. Sourcing, sorting,
-            and containerized dispatch directly from our 1,800&nbsp;sqm fenced facility in Al&nbsp;Sajaa, Sharjah.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#estimator" class="btn btn-copper">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              Lot Estimator
-            </a>
-            <a href="tel:+971567665019" class="btn btn-ghost">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              Direct Yard Hotline
-            </a>
-          </div>
-
-          <!-- Hero Verified Metrics -->
-          <div class="hero-stats-row">
-            <div class="stat-item">
-              <div class="stat-val" data-target="10" data-suffix="+">10+</div>
-              <div class="stat-desc">Years in Trade</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-val" data-target="1800" data-suffix=" m²">1,800 m²</div>
-              <div class="stat-desc">Fenced Yard Area</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-val" data-target="16" data-suffix=" Staff">16 Staff</div>
-              <div class="stat-desc">Dedicated Team</div>
-            </div>
-          </div>
+      <div class="wrap hero-content">
+        <p class="eyebrow reveal" data-i18n="heroEyebrow">Al Sajaa · Sharjah · UAE</p>
+        <h1 id="hero-title" class="hero-title reveal">
+          <span data-i18n="heroTitle1">Aluminium &amp; Copper Scrap.</span>
+          <span class="hero-title-alt" data-i18n="heroTitle2">Traded Right.</span>
+        </h1>
+        <p class="hero-sub reveal" data-i18n="heroSub">Licensed wholesale scrap trader in Sharjah since 2016.</p>
+        <div class="hero-actions reveal">
+          <a href="#contact" class="btn btn-copper" data-quote data-i18n="ctaQuote">Request a Quote</a>
+          <a href="https://wa.me/971567665019" class="btn btn-outline" target="_blank" rel="noopener" data-wa>
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>
+            <span data-i18n="ctaWhatsApp">WhatsApp Us</span>
+          </a>
         </div>
+      </div>
 
-        <!-- Right Pinterest 3D Moodboard & Live Cards -->
-        <div class="hero-art-board">
-          <div class="decor-ring"></div>
+      <div class="wrap">
+        <dl class="stats reveal">
+          <div class="stat">
+            <dt class="stat-label" data-i18n="statYears">Years in trade</dt>
+            <dd class="stat-value mono" dir="ltr">10+</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat-label" data-i18n="statYard">Fenced yard</dt>
+            <dd class="stat-value mono" dir="ltr">1,800 m²</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat-label" data-i18n="statFcl">FCL loading</dt>
+            <dd class="stat-value mono" dir="ltr">20ft &amp; 40ft</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
 
-          <!-- Live Yard Activity Float Chip -->
-          <div class="pcard-status-chip">
-            <div class="chip-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+    <!-- ============================== MATERIALS ============================== -->
+    <section class="section" id="materials" aria-labelledby="materials-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="idx mono">01</span> <span data-i18n="navMaterials">Materials</span></p>
+          <h2 id="materials-title" data-i18n="matTitle">What we trade.</h2>
+        </header>
+
+        <div class="materials">
+          <article class="mat-card reveal">
+            <div class="mat-media">
+              <img src="images/mat-aluminium-512.webp" width="512" height="600" loading="lazy" decoding="async"
+                   alt="Aluminium wire scrap staged at the yard" data-i18n-alt="altAluminium" />
             </div>
-            <div class="chip-text">
-              <h5>Yard Open &amp; Operating</h5>
-              <p>Receiving &amp; Container Loading in Al Sajaa</p>
+            <div class="mat-body">
+              <h3 data-i18n="matAlTitle">Aluminium Scrap</h3>
+              <p data-i18n="matAlLine">Sorted, baled and ready for container dispatch.</p>
+              <a href="#contact" class="link-arrow" data-material="aluminium"><span data-i18n="enquire">Enquire</span> <span class="arrow" aria-hidden="true">→</span></a>
             </div>
+          </article>
+
+          <article class="mat-card reveal">
+            <div class="mat-media">
+              <img src="images/mat-copper-448.webp" width="448" height="560" loading="lazy" decoding="async"
+                   alt="Copper scrap in bulk bags at the yard" data-i18n-alt="altCopper" />
+            </div>
+            <div class="mat-body">
+              <h3 data-i18n="matCuTitle">Copper Scrap</h3>
+              <p data-i18n="matCuLine">Graded copper in bulk bags, weighed transparently.</p>
+              <a href="#contact" class="link-arrow" data-material="copper"><span data-i18n="enquire">Enquire</span> <span class="arrow" aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="mat-card reveal">
+            <div class="mat-media mat-media--type" aria-hidden="true">
+              <span class="mat-glyph mono">Al<span>·</span>Cu<span>·</span>+</span>
+            </div>
+            <div class="mat-body">
+              <h3 data-i18n="matNfTitle">Other Non-Ferrous</h3>
+              <p data-i18n="matNfLine">Ask us about current availability.</p>
+              <a href="#contact" class="link-arrow" data-material="other"><span data-i18n="enquire">Enquire</span> <span class="arrow" aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== ESTIMATOR ============================== -->
+    <section class="section section--tight" id="estimator" aria-labelledby="estimator-title">
+      <div class="wrap estimator">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="idx mono">02</span> <span data-i18n="navEstimator">Estimator</span></p>
+          <h2 id="estimator-title" data-i18n="estTitle">Tonnes to containers.</h2>
+          <p class="lede" data-i18n="estSub">Enter a volume to see the approximate container count.</p>
+        </header>
+
+        <div class="terminal reveal">
+          <div class="terminal-bar mono" aria-hidden="true">
+            <span class="dot"></span><span>FCL / ESTIMATE</span>
           </div>
 
-          <!-- Card 1: Primary Stock Specimen (Aluminium Cable/Wire) -->
-          <div class="pinterest-card pcard-main">
-            <img src="images/yard-aluminium-scrap.jpg" alt="Aluminium scrap stock at Najmat Al Sahel yard" />
-            <div class="pcard-main-tag">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--copper)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Inspected Lot • Aluminium Wire Scrap
-            </div>
-            <div class="pcard-bottom-pill">
-              <div>
-                <div class="spec-name">Aluminium Cable &amp; Wire</div>
-                <div class="spec-sub">Batch Staging • Al Sajaa Yard</div>
+          <div class="terminal-fields">
+            <div class="field">
+              <label for="est-metal" data-i18n="estMetal">Metal type</label>
+              <div class="select-wrap">
+                <select id="est-metal">
+                  <option value="aluminium" data-i18n="optAluminium">Aluminium Scrap</option>
+                  <option value="copper" data-i18n="optCopper">Copper Scrap</option>
+                  <option value="other" data-i18n="optOther">Other Non-Ferrous</option>
+                </select>
               </div>
-              <span class="badge-pill" style="background:rgba(255,255,255,0.2); color:#fff; border:none;">Bulk Ready</span>
+            </div>
+            <div class="field">
+              <label for="est-volume" data-i18n="estVolume">Volume (MT)</label>
+              <div class="stepper" dir="ltr">
+                <button type="button" class="step" data-step="-5" aria-label="Decrease by 5 tonnes" data-i18n-aria="stepDown">−</button>
+                <input id="est-volume" class="mono" type="number" inputmode="decimal" min="1" max="5000" step="1" value="20" />
+                <button type="button" class="step" data-step="5" aria-label="Increase by 5 tonnes" data-i18n-aria="stepUp">+</button>
+              </div>
             </div>
           </div>
 
-          <!-- Card 2: Official Signboard Overlay Card -->
-          <div class="pinterest-card pcard-signboard">
-            <img src="images/signboard.jpg" alt="Najmat Al Sahel official signboard at gate" />
-            <div class="verified-stamp-badge">
-              ✓ Verified Signboard
-            </div>
+          <div class="terminal-output">
+            <output id="est-output" class="est-output mono" for="est-metal est-volume" aria-live="polite" dir="ltr">≈ <b>1.0</b> × 20ft FCL</output>
+            <p class="est-note" data-i18n="estNote">Indicative only. Final load depends on material and packing.</p>
           </div>
 
+          <button type="button" class="btn btn-copper btn-block" id="est-quote" data-i18n="estCta">Get Spot Quote</button>
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==========================================================================
-       COMMODITY TICKER (Light Minimalist Scrap Stream)
-       ========================================================================== -->
-  <div class="ticker-band">
-    <div class="ticker-track">
-      <div class="ticker-item">
-        <span class="ticker-badge">ALUMINIUM</span>
-        Aluminium Wire &amp; Cable Scrap
-        <span class="ticker-sep">✦</span>
+    <!-- ============================== HOW WE TRADE ============================== -->
+    <section class="section section--tight" id="process" aria-labelledby="process-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="idx mono">03</span> <span data-i18n="procEyebrow">Process</span></p>
+          <h2 id="process-title" data-i18n="procTitle">How we trade.</h2>
+        </header>
+
+        <ol class="steps reveal">
+          <li class="step-item">
+            <span class="step-idx mono">01</span>
+            <h3 data-i18n="s1">Source</h3>
+            <p data-i18n="s1Line">Material received at our Al Sajaa yard.</p>
+          </li>
+          <li class="step-item">
+            <span class="step-idx mono">02</span>
+            <h3 data-i18n="s2">Sort</h3>
+            <p data-i18n="s2Line">Separated by metal and grade.</p>
+          </li>
+          <li class="step-item">
+            <span class="step-idx mono">03</span>
+            <h3 data-i18n="s3">Weigh</h3>
+            <p data-i18n="s3Line">Every lot weighed transparently.</p>
+          </li>
+          <li class="step-item">
+            <span class="step-idx mono">04</span>
+            <h3 data-i18n="s4">Dispatch</h3>
+            <p data-i18n="s4Line">Loaded into 20ft or 40ft containers.</p>
+          </li>
+        </ol>
       </div>
-      <div class="ticker-item">
-        <span class="ticker-badge">COPPER</span>
-        Pure Copper Scrap in Bulk Bags
-        <span class="ticker-sep">✦</span>
-      </div>
-      <div class="ticker-item">
-        <span class="ticker-badge">LOGISTICS</span>
-        20ft &amp; 40ft Containerized Dispatch
-        <span class="ticker-sep">✦</span>
-      </div>
-      <div class="ticker-item">
-        <span class="ticker-badge">LICENSE</span>
-        Sharjah Trade License #748232 Verified
-        <span class="ticker-sep">✦</span>
-      </div>
-      <div class="ticker-item">
-        <span class="ticker-badge">LOCATION</span>
-        Al Sajaa Industrial Area • 1,800 SQM Yard
-        <span class="ticker-sep">✦</span>
-      </div>
-      <div class="ticker-item">
-        <span class="ticker-badge">DIRECT</span>
-        Transparent Weighbridge &amp; Dealings
-        <span class="ticker-sep">✦</span>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- ==========================================================================
-       BENTO SHOWROOM: MATERIALS & RECYCLING PIPELINE
-       ========================================================================== -->
-  <section id="materials" class="section-bento">
-    <div class="container">
-      
-      <div class="section-head-center">
-        <span class="badge-pill">Trading Portfolio</span>
-        <h2>High-Grade Metal Scrap</h2>
-        <p>Sourced locally across the United Arab Emirates, sorted by experienced handlers, and stored in our secure Al Sajaa yard.</p>
-      </div>
-
-      <div class="bento-grid">
-        
-        <!-- Bento 1: Aluminium Scrap Card (7 cols) -->
-        <div class="bento-card bento-card-7">
-          <div class="bento-visual-header">
-            <img src="images/yard-aluminium-scrap.jpg" alt="Aluminium scrap stock" />
-            <div class="bento-tag-corner">Core Commodity</div>
-          </div>
-          <h3 class="bento-title">Aluminium Scrap</h3>
-          <p class="bento-desc">
-            We handle high-volume wholesale trading of aluminium wire, stripped cables, fittings, and industrial extrusions. Material is clean-sorted, bundled, and staged for immediate container loading.
-          </p>
-          <div class="bento-meta-pills">
-            <span class="meta-pill">⚡ Wire &amp; Cable Scrap</span>
-            <span class="meta-pill">📦 Bulk Container Loading</span>
-            <span class="meta-pill">⚖️ Fair Certified Weighing</span>
-          </div>
-          <button class="btn btn-outline-copper" onclick="prefillInquiry('Aluminium Scrap')">Enquire on Aluminium Lots</button>
-        </div>
-
-        <!-- Bento 2: Copper Scrap Card (5 cols) -->
-        <div class="bento-card bento-card-5">
-          <div class="bento-visual-header">
-            <img src="images/yard-containers.jpg" alt="Copper material in bulk bags alongside shipping container" />
-            <div class="bento-tag-corner">High Value</div>
-          </div>
-          <h3 class="bento-title">Copper Scrap</h3>
-          <p class="bento-desc">
-            Copper scrap sorted into secure industrial bulk bags for maximum transport safety and contamination-free handling. Ready for regional delivery and export loading.
-          </p>
-          <div class="bento-meta-pills">
-            <span class="meta-pill">💼 Bulk Industrial Bags</span>
-            <span class="meta-pill">🚢 Export Ready</span>
-          </div>
-          <button class="btn btn-outline-copper" onclick="prefillInquiry('Copper Scrap')">Enquire on Copper Lots</button>
-        </div>
-
-        <!-- Bento 3: Other Non-Ferrous & Recyclables (4 cols) -->
-        <div class="bento-card bento-card-4">
-          <div style="height: 180px; background: var(--bg-subtle); border-radius: var(--radius-md); display:flex; align-items:center; justify-content:center; margin-bottom: 24px;">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--copper)" stroke-width="1.8">
-              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
-            </svg>
-          </div>
-          <h3 class="bento-title">Other Recyclable Metals</h3>
-          <p class="bento-desc">
-            Metal fittings and mixed non-ferrous scrap lots available periodically based on supplier clearance.
-          </p>
-          <button class="btn btn-ghost" style="width:100%;" onclick="prefillInquiry('Other Recyclable Metals')">Check Availability</button>
-        </div>
-
-        <!-- Bento 4: Interactive Consignment Weight & Container Estimator (8 cols) -->
-        <div id="estimator" class="bento-card bento-card-8 calculator-card">
-          <h3 class="bento-title">Container Load &amp; Spot Quote Estimator</h3>
-          <p class="bento-desc">
-            Planning a scrap cargo? Estimate how many standard 20ft Full Container Loads (FCL) your procurement volume represents, and generate a customized trade enquiry with one click.
-          </p>
-
-          <div class="calc-grid">
-            <div class="calc-group">
-              <label for="calcMetal">Selected Metal Commodity</label>
-              <select id="calcMetal" class="calc-select">
-                <option value="Aluminium Scrap">Aluminium Wire / Cable Scrap</option>
-                <option value="Copper Scrap">Copper Scrap (Bulk Bags)</option>
-                <option value="Mixed Metal Scrap">Mixed Non-Ferrous Scrap</option>
-              </select>
-            </div>
-
-            <div class="calc-group">
-              <label for="calcTonnage">Target Lot Volume: <span id="calcTonnageVal" style="color:var(--copper); font-weight:800;">20 MT</span></label>
-              <input type="range" id="calcTonnage" min="5" max="250" step="5" value="20" class="calc-slider" style="accent-color:var(--copper); cursor:pointer;" />
-            </div>
-          </div>
-
-          <div class="calc-summary-box">
-            <div class="calc-summary-details">
-              <h6>Estimated Shipping Volume</h6>
-              <div class="calc-output" id="calcOutput">~ 1.0 x 20ft FCL</div>
-            </div>
-            <button id="calcInquiryBtn" class="btn btn-copper">
-              Forward to Sales &rarr;
-            </button>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       OFFICIAL COMPLIANCE & BANK KYC DOSSIER (Clean Financial Design)
-       ========================================================================== -->
-  <section id="compliance" class="section-compliance">
-    <div class="container">
-      
-      <div class="compliance-dossier">
-        
-        <div class="dossier-topbar">
-          <div class="dossier-left">
-            <div class="dossier-icon">
-              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            </div>
-            <div class="dossier-title">
-              <h3>Official Regulatory &amp; Corporate Identification</h3>
-              <p>Government of Sharjah • Federal Authority for Identity &amp; Citizenship (UAE)</p>
-            </div>
-          </div>
-
-          <div class="dossier-status-seal">
-            <span class="pulse-dot"></span>
-            Verified Active License
-          </div>
-        </div>
-
-        <div class="dossier-grid">
-          
-          <div class="doc-cell">
-            <div class="doc-label">English Legal Name</div>
-            <div class="doc-val">NAJMAT AL SAHEL ALUM &amp; COPPER SCRAP TR LLC</div>
-          </div>
-
-          <div class="doc-cell">
-            <div class="doc-label">Arabic Legal Name</div>
-            <div class="doc-val-ar">نجمة الساحل لتجارة خردة الألمنيوم والنحاس ذ.م.م</div>
-          </div>
-
-          <div class="doc-cell">
-            <div class="doc-label">Trade Licence Number</div>
-            <div class="doc-val" style="color:var(--copper); font-size:1.2rem;">748232</div>
-          </div>
-
-          <div class="doc-cell">
-            <div class="doc-label">Establishment Card No.</div>
-            <div class="doc-val">213914 / 6 / 301</div>
-          </div>
-
-          <div class="doc-cell">
-            <div class="doc-label">Licensed Activity</div>
-            <div class="doc-val">Wholesale of recycling metal scrap and waste</div>
-          </div>
-
-          <div class="doc-cell">
-            <div class="doc-label">Card Validity Period</div>
-            <div class="doc-val">02/01/2026 &mdash; 02/01/2029</div>
-          </div>
-
-          <div class="doc-cell">
-            <div class="doc-label">Legal Form &amp; Jurisdiction</div>
-            <div class="doc-val">Limited Liability Company (LLC), Sharjah</div>
-          </div>
-
-          <div class="doc-cell">
-            <div class="doc-label">Operating Facility</div>
-            <div class="doc-val">Al Sajaa Industrial Area, Sharjah, UAE</div>
-          </div>
-
-        </div>
-
-        <div class="dossier-footnote">
+    <!-- ============================== THE YARD ============================== -->
+    <section class="section" id="yard" aria-labelledby="yard-title">
+      <div class="wrap">
+        <header class="section-head section-head--split reveal">
           <div>
-            <strong>KYC Notice:</strong> Official certified true copies of our Trade Licence, Chamber Certificate, and Tenancy Contract are provided directly to authorized compliance &amp; banking reviewers upon formal request.
+            <p class="eyebrow"><span class="idx mono">04</span> <span data-i18n="navYard">Yard</span></p>
+            <h2 id="yard-title" data-i18n="yardTitle">The yard.</h2>
           </div>
-          <a href="#contact" class="btn btn-ghost" style="padding:10px 20px; font-size:0.85rem;">Request Compliance Pack</a>
-        </div>
+          <p class="lede" data-i18n="yardSub">1,800 m², fenced, in Al Sajaa Industrial Area.</p>
+        </header>
 
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       FACILITY & YARD PINBOARD (Pinterest Light Masonry Grid)
-       ========================================================================== -->
-  <section id="facility" class="section-pinboard">
-    <div class="container">
-      
-      <div class="section-head-center">
-        <span class="badge-pill">Facility Gallery</span>
-        <h2>On-Site Operations &amp; Staging</h2>
-        <p>A transparent look inside our ~1,800 sqm fenced scrap yard located in the heart of Al Sajaa Industrial Area.</p>
-      </div>
-
-      <div class="pinboard-grid">
-        
-        <div class="pin-item">
-          <div class="pin-thumb">
-            <img src="images/signboard.jpg" alt="Official bilingual signboard at entrance" loading="lazy" />
-            <div class="pin-lens-btn">
-              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            </div>
-          </div>
-          <div class="pin-caption">
-            <div class="pin-title">Official Entrance Signboard</div>
-            <div class="pin-meta">Bilingual EN/AR with registered phones</div>
-          </div>
-        </div>
-
-        <div class="pin-item">
-          <div class="pin-thumb">
-            <img src="images/entrance-gate.jpg" alt="Orange entrance gate to fenced yard" loading="lazy" />
-            <div class="pin-lens-btn">
-              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            </div>
-          </div>
-          <div class="pin-caption">
-            <div class="pin-title">Secure Yard Entrance Gate</div>
-            <div class="pin-meta">Fenced ~1,800 sqm logistics perimeter</div>
-          </div>
-        </div>
-
-        <div class="pin-item">
-          <div class="pin-thumb">
-            <img src="images/yard-containers.jpg" alt="Shipping containers and copper scrap staging" loading="lazy" />
-            <div class="pin-lens-btn">
-              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            </div>
-          </div>
-          <div class="pin-caption">
-            <div class="pin-title">Containerized Staging Area</div>
-            <div class="pin-meta">Bulk bags &amp; heavy export loading</div>
-          </div>
-        </div>
-
-        <div class="pin-item">
-          <div class="pin-thumb">
-            <img src="images/yard-aluminium-scrap.jpg" alt="Aluminium scrap stock and wooden crates" loading="lazy" />
-            <div class="pin-lens-btn">
-              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            </div>
-          </div>
-          <div class="pin-caption">
-            <div class="pin-title">Aluminium Scrap Bundling</div>
-            <div class="pin-meta">Clean wire piles &amp; metal fittings</div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       WHY CHOOSE US (Pinterest Minimalist Value Cards)
-       ========================================================================== -->
-  <section id="why-us" class="section-features">
-    <div class="container">
-      
-      <div class="section-head-center">
-        <span class="badge-pill">Operating Standards</span>
-        <h2>Why Partner with Najmat Al Sahel</h2>
-        <p>Verified facts and real trade infrastructure supporting dependable scrap metal transactions.</p>
-      </div>
-
-      <div class="features-grid">
-        
-        <div class="feature-pill-card">
-          <div class="f-icon-wrap">
-            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h4>Sharjah Licensed Activity</h4>
-          <p>Strictly compliant wholesale trading in recycled metal scrap under Trade Licence No. 748232.</p>
-        </div>
-
-        <div class="feature-pill-card">
-          <div class="f-icon-wrap">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <h4>10+ Years Industry Tenure</h4>
-          <p>Founded in 2016, our commercial network spans suppliers, foundries, and industrial recyclers across the UAE.</p>
-        </div>
-
-        <div class="feature-pill-card">
-          <div class="f-icon-wrap">
-            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-          </div>
-          <h4>Dedicated Container Yard</h4>
-          <p>Approx. 1,800 sqm of secure, fenced ground with ample turning clearance for heavy trailers and container cranes.</p>
-        </div>
-
-        <div class="feature-pill-card">
-          <div class="f-icon-wrap">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h4>16-Member On-Site Team</h4>
-          <p>Trained sorters, loaders, and yard supervisors operating daily to ensure clean material separation.</p>
-        </div>
-
-        <div class="feature-pill-card">
-          <div class="f-icon-wrap">
-            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          </div>
-          <h4>Direct Management Dealings</h4>
-          <p>Deal straight with authorized company decision-makers — eliminating intermediary markups and delays.</p>
-        </div>
-
-        <div class="feature-pill-card">
-          <div class="f-icon-wrap">
-            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <h4>Rapid Dispatch &amp; Weighing</h4>
-          <p>Efficient turnaround on every collection and container dispatch with transparent weighing practices.</p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       CONTACT & LOCATION SECTION (Clean White Light Form + Google Maps)
-       ========================================================================== -->
-  <section id="contact" class="section-contact">
-    <div class="container">
-      
-      <div class="contact-layout">
-        
-        <!-- Left Contact Info -->
-        <div class="contact-info-panel">
-          <div>
-            <span class="badge-pill">Direct Communication</span>
-            <h2 style="font-size:2.4rem; margin: 12px 0 8px;">Let's Talk Scrap Business</h2>
-            <p style="color:var(--text-body);">
-              Reach our Al Sajaa yard team for material procurement, scrap selling, or container scheduling.
-            </p>
-          </div>
-
-          <div class="info-box">
-            <div class="info-box-icon">
-              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div class="info-box-text">
-              <h5>Yard Location</h5>
-              <p>Al Sajaa Industrial Area, Sharjah, United Arab Emirates</p>
-            </div>
-          </div>
-
-          <div class="info-box">
-            <div class="info-box-icon">
-              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <div class="info-box-text">
-              <h5>Direct Mobiles (From Signboard)</h5>
-              <p>
-                <a href="tel:+971567665019">056 766 5019</a> &nbsp;•&nbsp; 
-                <a href="tel:+971527002411">052 700 2411</a>
-              </p>
-            </div>
-          </div>
-
-          <div class="info-box">
-            <div class="info-box-icon">
-              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <div class="info-box-text">
-              <h5>Landline Tel.</h5>
-              <p><a href="tel:+97165796879">(06) 579 6879</a></p>
-            </div>
-          </div>
-
-          <div class="info-box">
-            <div class="info-box-icon">
-              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div class="info-box-text">
-              <h5>Official Email</h5>
-              <p><a href="mailto:najmatalsahelalumcopper@gmail.com">najmatalsahelalumcopper@gmail.com</a></p>
-            </div>
-          </div>
-
-          <!-- Embedded Map -->
-          <div class="map-container">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3604.5!2d55.631!3d25.281!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAl+Sajaa+Industrial+Area!5e0!3m2!1sen!2sae!4v1"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Najmat Al Sahel Al Sajaa Location">
-            </iframe>
-          </div>
-        </div>
-
-        <!-- Right Light Form -->
-        <div class="form-panel">
-          <h3>Send Trade Inquiry</h3>
-          <p>Please specify your metal requirements or offering details below:</p>
-
-          <form id="tradeInquiryForm" novalidate>
-            <div class="form-row-2">
-              <div class="form-field">
-                <label for="inquiryName">Contact Person *</label>
-                <input type="text" id="inquiryName" placeholder="Full Name" required />
-              </div>
-              <div class="form-field">
-                <label for="inquiryCompany">Company Name</label>
-                <input type="text" id="inquiryCompany" placeholder="Trading or Manufacturing Co." />
-              </div>
-            </div>
-
-            <div class="form-row-2">
-              <div class="form-field">
-                <label for="inquiryEmail">Email Address *</label>
-                <input type="email" id="inquiryEmail" placeholder="name@company.com" required />
-              </div>
-              <div class="form-field">
-                <label for="inquiryPhone">Phone / WhatsApp *</label>
-                <input type="tel" id="inquiryPhone" placeholder="+971 5X XXX XXXX" required />
-              </div>
-            </div>
-
-            <div class="form-field">
-              <label for="inquiryProduct">Material of Interest</label>
-              <select id="inquiryProduct">
-                <option value="Aluminium Scrap">Aluminium Wire / Cable Scrap</option>
-                <option value="Copper Scrap">Copper Scrap (Bulk Bags)</option>
-                <option value="Other Recyclable Metals">Other Recyclable Metals</option>
-                <option value="KYC / Compliance Query">Compliance / KYC Document Request</option>
-                <option value="General Commercial Inquiry">General Commercial Inquiry</option>
-              </select>
-            </div>
-
-            <div class="form-field">
-              <label for="inquiryMessage">Inquiry Details / Volume *</label>
-              <textarea id="inquiryMessage" placeholder="Specify volume (MT), delivery or collection timeline, and destination..." required></textarea>
-            </div>
-
-            <!-- Bot Honeypot -->
-            <div class="honeypot-wrap" aria-hidden="true">
-              <input type="text" id="inquiryWebsite" name="website" tabindex="-1" autocomplete="off" />
-            </div>
-
-            <button type="submit" class="btn btn-copper" style="width:100%; padding:16px;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-              Transmit Trade Inquiry
+        <div class="gallery">
+          <figure class="g g-a reveal">
+            <button type="button" class="g-btn" data-full="images/yard-signboard-1400.webp" aria-label="Enlarge: Entrance signboard">
+              <img src="images/yard-signboard-800.webp" srcset="images/yard-signboard-800.webp 800w, images/yard-signboard-1400.webp 1400w"
+                   sizes="(min-width: 900px) 58vw, 100vw" width="1400" height="787" loading="lazy" decoding="async"
+                   alt="Bilingual company signboard at the yard entrance" data-i18n-alt="altSign" />
             </button>
+            <figcaption class="mono"><span class="g-idx">A</span> <span data-i18n="capSign">Entrance signboard</span></figcaption>
+          </figure>
 
-            <div id="formToast" class="form-toast"></div>
+          <figure class="g g-b reveal">
+            <button type="button" class="g-btn" data-full="images/yard-containers-1000.webp" aria-label="Enlarge: Container staging">
+              <img src="images/yard-containers-640.webp" srcset="images/yard-containers-640.webp 640w, images/yard-containers-1000.webp 1000w"
+                   sizes="(min-width: 900px) 40vw, 100vw" width="1000" height="1003" loading="lazy" decoding="async"
+                   alt="Shipping container staged beside bulk bags" data-i18n-alt="altContainers" />
+            </button>
+            <figcaption class="mono"><span class="g-idx">B</span> <span data-i18n="capContainers">Container staging</span></figcaption>
+          </figure>
+
+          <figure class="g g-c reveal">
+            <button type="button" class="g-btn" data-full="images/yard-gate-1200.webp" aria-label="Enlarge: Yard gate">
+              <img src="images/yard-gate-720.webp" srcset="images/yard-gate-720.webp 720w, images/yard-gate-1200.webp 1200w"
+                   sizes="(min-width: 900px) 30vw, 100vw" width="1200" height="985" loading="lazy" decoding="async"
+                   alt="Steel entrance gate of the fenced yard" data-i18n-alt="altGate" />
+            </button>
+            <figcaption class="mono"><span class="g-idx">C</span> <span data-i18n="capGate">Yard gate</span></figcaption>
+          </figure>
+
+          <figure class="g g-d reveal">
+            <button type="button" class="g-btn" data-full="images/yard-aluminium-1000.webp" aria-label="Enlarge: Aluminium bundling">
+              <img src="images/yard-aluminium-640.webp" srcset="images/yard-aluminium-640.webp 640w, images/yard-aluminium-1000.webp 1000w"
+                   sizes="(min-width: 900px) 28vw, 100vw" width="1000" height="994" loading="lazy" decoding="async"
+                   alt="Aluminium scrap staged in front of a shipping container" data-i18n-alt="altAluminiumYard" />
+            </button>
+            <figcaption class="mono"><span class="g-idx">D</span> <span data-i18n="capAluminium">Aluminium bundling</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== COMPLIANCE ============================== -->
+    <section class="compliance" id="compliance" aria-labelledby="compliance-title">
+      <div class="wrap">
+        <div class="compliance-head reveal">
+          <p class="eyebrow"><span class="idx mono">05</span> <span data-i18n="navCompliance">Compliance</span></p>
+          <h2 id="compliance-title" class="h-sm" data-i18n="compTitle">Licensed. On record.</h2>
+        </div>
+
+        <dl class="ledger reveal">
+          <div class="ledger-cell">
+            <dt data-i18n="compLicence">Trade Licence</dt>
+            <dd class="mono" dir="ltr">748232</dd>
+          </div>
+          <div class="ledger-cell">
+            <dt data-i18n="compCard">Est. Card</dt>
+            <dd class="mono" dir="ltr">213914/6/301</dd>
+          </div>
+          <div class="ledger-cell">
+            <dt data-i18n="compValid">Valid until</dt>
+            <dd class="mono" dir="ltr">02/01/2029</dd>
+          </div>
+          <div class="ledger-cell ledger-cell--wide">
+            <dt data-i18n="compActivity">Licensed activity</dt>
+            <dd data-i18n="compActivityVal">Wholesale of recycling metal scrap and waste</dd>
+          </div>
+        </dl>
+
+        <div class="compliance-foot reveal">
+          <p data-i18n="compLine">Certified copies of trade licence, chamber certificate and tenancy contract available on request.</p>
+          <a href="#contact" class="btn btn-outline" data-material="compliance" data-i18n="compCta">Request Compliance Pack</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CONTACT ============================== -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="idx mono">06</span> <span data-i18n="navContact">Contact</span></p>
+          <h2 id="contact-title" data-i18n="contactTitle">Talk to the yard.</h2>
+        </header>
+
+        <div class="contact">
+          <div class="contact-info reveal">
+            <div class="map">
+              <iframe id="map" title="Map of Al Sajaa Industrial Area, Sharjah" data-i18n-title="mapTitle"
+                      src="https://www.google.com/maps?q=Al+Sajaa+Industrial+Area,+Sharjah&amp;z=13&amp;hl=en&amp;output=embed"
+                      loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            </div>
+
+            <dl class="contact-list">
+              <div class="c-row">
+                <dt data-i18n="cMobile">Mobile / WhatsApp</dt>
+                <dd>
+                  <a class="mono" href="tel:+971567665019" dir="ltr">056 766 5019</a>
+                  <a class="mono" href="tel:+971527002411" dir="ltr">052 700 2411</a>
+                </dd>
+              </div>
+              <div class="c-row">
+                <dt data-i18n="cLandline">Landline</dt>
+                <dd><a class="mono" href="tel:+97165796879" dir="ltr">(06) 579 6879</a></dd>
+              </div>
+              <div class="c-row">
+                <dt data-i18n="cEmail">Email</dt>
+                <dd><a class="mono c-email" href="mailto:najmatalsahelalumcopper@gmail.com" dir="ltr">najmatalsahelalumcopper@gmail.com</a></dd>
+              </div>
+              <div class="c-row">
+                <dt data-i18n="cAddress">Address</dt>
+                <dd data-i18n="cAddressVal">Al Sajaa Industrial Area, Sharjah, UAE</dd>
+              </div>
+            </dl>
+
+            <a href="https://wa.me/971567665019" class="btn btn-outline" target="_blank" rel="noopener" data-wa>
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>
+              <span data-i18n="ctaWhatsApp">WhatsApp Us</span>
+            </a>
+          </div>
+
+          <form class="form reveal" id="inquiry" novalidate data-endpoint="">
+            <div class="form-grid">
+              <div class="field">
+                <label for="f-name"><span data-i18n="fName">Name</span> <span class="req" aria-hidden="true">*</span></label>
+                <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err" />
+                <p class="err" id="f-name-err" data-i18n="errName" hidden>Please enter your name.</p>
+              </div>
+              <div class="field">
+                <label for="f-company" data-i18n="fCompany">Company</label>
+                <input id="f-company" name="company" type="text" autocomplete="organization" />
+              </div>
+              <div class="field">
+                <label for="f-phone"><span data-i18n="fPhone">Phone / WhatsApp</span> <span class="req" aria-hidden="true">*</span></label>
+                <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" dir="ltr" required aria-describedby="f-phone-err" />
+                <p class="err" id="f-phone-err" data-i18n="errPhone" hidden>Please enter a phone or WhatsApp number.</p>
+              </div>
+              <div class="field">
+                <label for="f-material" data-i18n="fMaterial">Material</label>
+                <div class="select-wrap">
+                  <select id="f-material" name="material">
+                    <option value="aluminium" data-i18n="mAluminium">Aluminium</option>
+                    <option value="copper" data-i18n="mCopper">Copper</option>
+                    <option value="other" data-i18n="mOther">Other Metals</option>
+                    <option value="compliance" data-i18n="mCompliance">Compliance Pack</option>
+                    <option value="general" data-i18n="mGeneral">General</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field field--full">
+                <label for="f-details" data-i18n="fDetails">Volume / Details</label>
+                <textarea id="f-details" name="details" rows="4"></textarea>
+              </div>
+            </div>
+
+            <div class="hp" aria-hidden="true">
+              <label for="f-website">Website</label>
+              <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <button type="submit" class="btn btn-copper btn-block" data-i18n="fSubmit">Send Inquiry</button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
           </form>
         </div>
-
       </div>
+    </section>
+  </main>
 
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       CLEAN LIGHT FOOTER
-       ========================================================================== -->
-  <footer class="footer-clean">
-    <div class="container">
-      
-      <div class="footer-columns">
-        
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
         <div class="footer-brand">
-          <div class="brand-wrap">
-            <div class="brand-symbol">
-              <svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
-            </div>
-            <div class="brand-title">
-              <span class="brand-name">NAJMAT AL SAHEL</span>
-              <span class="brand-tagline">Alum &amp; Copper Scrap Trading LLC</span>
-            </div>
-          </div>
-          <p>
-            Licensed wholesale recycling &amp; non-ferrous metal trading house operating from Al Sajaa Industrial Area, Sharjah. Established 2016.
-          </p>
-          <div class="footer-arabic-title">
-            نجمة الساحل لتجارة خردة الألمنيوم والنحاس ذ.م.م
-          </div>
-          <p style="font-size:0.78rem; color:var(--text-muted); margin-top:6px;">
-            Trade Licence No. 748232 • Establishment Card No. 213914/6/301
-          </p>
+          <p class="footer-name">Najmat Al Sahel Alum &amp; Copper Scrap Trading LLC</p>
+          <p class="footer-name-ar"><span lang="ar" dir="rtl">نجمة الساحل لتجارة خردة الألمنيوم والنحاس ذ.م.م</span></p>
+          <p class="footer-meta mono"><span data-i18n="fLicence">Trade Licence No.</span> <span dir="ltr">748232</span></p>
         </div>
-
-        <div>
-          <h5 class="footer-heading">Navigation</h5>
-          <ul class="footer-list">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#materials">Materials</a></li>
-            <li><a href="#estimator">Lot Estimator</a></li>
-            <li><a href="#compliance">Regulatory &amp; KYC</a></li>
-            <li><a href="#facility">Yard Facility</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h5 class="footer-heading">Commodities</h5>
-          <ul class="footer-list">
-            <li><a href="#materials">Aluminium Wire Scrap</a></li>
-            <li><a href="#materials">Copper Bulk Bags</a></li>
-            <li><a href="#materials">Container Lots (FCL)</a></li>
-            <li><a href="#materials">Recyclable Metal Waste</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h5 class="footer-heading">Direct Yard Lines</h5>
-          <ul class="footer-list">
-            <li><a href="tel:+971567665019">Mob: 056 766 5019</a></li>
-            <li><a href="tel:+971527002411">Mob: 052 700 2411</a></li>
-            <li><a href="tel:+97165796879">Landline: (06) 579 6879</a></li>
-            <li><a href="mailto:najmatalsahelalumcopper@gmail.com" style="word-break:break-all;">najmatalsahelalumcopper@gmail.com</a></li>
-            <li style="margin-top:6px; font-size:0.85rem; color:var(--text-muted);">Al Sajaa Industrial Area, Sharjah, UAE</li>
-          </ul>
-        </div>
-
+        <ul class="footer-links mono">
+          <li><a href="tel:+971567665019" dir="ltr">056 766 5019</a></li>
+          <li><a href="tel:+971527002411" dir="ltr">052 700 2411</a></li>
+          <li><a href="tel:+97165796879" dir="ltr">(06) 579 6879</a></li>
+          <li><a href="mailto:najmatalsahelalumcopper@gmail.com" class="c-email" dir="ltr">najmatalsahelalumcopper@gmail.com</a></li>
+          <li><a href="https://wa.me/971567665019" target="_blank" rel="noopener" data-wa>WhatsApp</a></li>
+        </ul>
       </div>
-
-      <div class="footer-bottom-bar">
-        <div>
-          &copy; 2026 NAJMAT AL SAHEL ALUM &amp; COPPER SCRAP TR LLC. All rights reserved.
-        </div>
-        <div class="footer-bottom-links">
-          <a href="#compliance">Licensing Terms</a>
-          <a href="#contact">Yard Visit Policy</a>
-        </div>
+      <div class="footer-bottom">
+        <p data-i18n="copyright">© 2026 Najmat Al Sahel</p>
+        <nav class="footer-nav" aria-label="Legal">
+          <a href="#compliance" data-i18n="lLicensing">Licensing Terms</a>
+          <a href="#contact" data-material="general" data-visit data-i18n="lVisit">Yard Visit Policy</a>
+        </nav>
       </div>
-
     </div>
   </footer>
 
-  <!-- ==========================================================================
-       WHATSAPP LIVE HOTLINE & BACK TO TOP
-       ========================================================================== -->
-  <a
-    href="https://wa.me/971567665019?text=Hello%20Najmat%20Al%20Sahel%2C%20I%20would%20like%20to%20enquire%20about%20your%20scrap%20metal%20supplies%20at%20Al%20Sajaa%20yard."
-    class="float-wa"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Direct WhatsApp Message"
-  >
-    <svg viewBox="0 0 24 24">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
+  <!-- Floating WhatsApp (mobile) -->
+  <a href="https://wa.me/971567665019" class="fab-wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" data-wa data-i18n-aria="waAria">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>
   </a>
 
-  <button class="float-top" aria-label="Scroll back to top">
-    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
-  </button>
+  <!-- Gallery lightbox -->
+  <dialog class="lightbox" id="lightbox" aria-label="Yard photo">
+    <form method="dialog"><button class="lightbox-close" aria-label="Close" data-i18n-aria="close">×</button></form>
+    <img alt="" />
+    <p class="lightbox-cap mono"></p>
+  </dialog>
 
-  <script src="script.js"></script>
+  <!-- Icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-wa" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35zM12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.89-9.89 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89zm8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.41z"/>
+    </symbol>
+  </svg>
+
+  <script src="script.js" defer></script>
 </body>
 </html>

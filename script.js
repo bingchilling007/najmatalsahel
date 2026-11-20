@@ -1,319 +1,546 @@
 /* ==========================================================================
-   NAJMAT AL SAHEL — INTERACTIVE JAVASCRIPT
-   Pinterest-Inspired Light Aesthetic & Scrap Calculator
+   Najmat Al Sahel — site script (no dependencies)
    ========================================================================== */
+(function () {
+  'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
+  var doc = document.documentElement;
+  var SITE = 'https://najmatalsahelalum.com/';
+  var EMAIL = 'najmatalsahelalumcopper@gmail.com';
+  var WHATSAPP = '971567665019';
+  // Approximate scrap payload per 20ft FCL used by the estimator (metric tonnes).
+  var MT_PER_20FT = 21;
 
-  // 1. Interactive Cursor Glow (Light Warm Highlight)
-  const cursorGlow = document.createElement('div');
-  cursorGlow.className = 'cursor-glow';
-  document.body.appendChild(cursorGlow);
+  /* ------------------------------------------------------------------------
+     i18n — English lives in the HTML; Arabic strings are here.
+     ------------------------------------------------------------------------ */
+  var AR = {
+    skip: 'تخطَّ إلى المحتوى',
+    brand: 'نجمة الساحل',
+    brandSub: 'لتجارة خردة الألمنيوم والنحاس ذ.م.م',
+    brandAria: 'نجمة الساحل، العودة إلى الأعلى',
+    navAria: 'القائمة الرئيسية',
+    navMaterials: 'المواد',
+    navEstimator: 'الحاسبة',
+    navYard: 'الساحة',
+    navCompliance: 'الامتثال',
+    navContact: 'تواصل',
+    ctaQuote: 'اطلب عرض سعر',
+    ctaWhatsApp: 'راسلنا على واتساب',
 
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
-  let currentX = mouseX;
-  let currentY = mouseY;
+    heroEyebrow: 'الصجعة · الشارقة · الإمارات',
+    heroTitle1: 'خردة الألمنيوم والنحاس.',
+    heroTitle2: 'تجارة بأصولها.',
+    heroSub: 'تاجر جملة مرخّص لخردة المعادن في الشارقة منذ 2016.',
+    statYears: 'سنوات في التجارة',
+    statYard: 'ساحة مسوّرة',
+    statFcl: 'تحميل حاويات كاملة',
 
-  window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  }, { passive: true });
+    matTitle: 'ما نتاجر به.',
+    matAlTitle: 'خردة الألمنيوم',
+    matAlLine: 'مفروزة ومحزّمة وجاهزة للشحن بالحاويات.',
+    matCuTitle: 'خردة النحاس',
+    matCuLine: 'نحاس مصنّف في أكياس كبيرة، بوزن شفاف.',
+    matNfTitle: 'معادن غير حديدية أخرى',
+    matNfLine: 'اسألنا عن المتوفّر حالياً.',
+    enquire: 'استفسر',
+    altAluminium: 'خردة أسلاك ألمنيوم في الساحة',
+    altCopper: 'خردة نحاس في أكياس كبيرة في الساحة',
 
-  function renderCursor() {
-    currentX += (mouseX - currentX) * 0.12;
-    currentY += (mouseY - currentY) * 0.12;
-    cursorGlow.style.left = `${currentX}px`;
-    cursorGlow.style.top = `${currentY}px`;
-    requestAnimationFrame(renderCursor);
-  }
-  renderCursor();
+    estTitle: 'من الأطنان إلى الحاويات.',
+    estSub: 'أدخل الكمية لمعرفة العدد التقريبي للحاويات.',
+    estMetal: 'نوع المعدن',
+    estVolume: 'الكمية (طن متري)',
+    optAluminium: 'خردة الألمنيوم',
+    optCopper: 'خردة النحاس',
+    optOther: 'معادن غير حديدية أخرى',
+    estNote: 'تقدير فقط. يعتمد التحميل الفعلي على نوع المادة وطريقة التعبئة.',
+    estCta: 'اطلب سعراً فورياً',
+    stepDown: 'إنقاص 5 أطنان',
+    stepUp: 'زيادة 5 أطنان',
 
-  // 2. Header Scroll Transition
-  const header = document.querySelector('.header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
+    procEyebrow: 'آلية العمل',
+    procTitle: 'كيف نتاجر.',
+    s1: 'التوريد', s1Line: 'استلام المواد في ساحتنا بالصجعة.',
+    s2: 'الفرز', s2Line: 'فصل حسب نوع المعدن ودرجته.',
+    s3: 'الوزن', s3Line: 'وزن شفاف لكل دفعة.',
+    s4: 'الشحن', s4Line: 'تحميل في حاويات 20 أو 40 قدماً.',
+
+    yardTitle: 'الساحة.',
+    yardSub: '1,800 م²، مسوّرة، في منطقة الصجعة الصناعية.',
+    capSign: 'لوحة المدخل',
+    capContainers: 'تجهيز الحاويات',
+    capGate: 'بوابة الساحة',
+    capAluminium: 'تحزيم الألمنيوم',
+    altSign: 'لوحة الشركة ثنائية اللغة عند مدخل الساحة',
+    altContainers: 'حاوية شحن بجانب أكياس كبيرة',
+    altGate: 'البوابة الحديدية للساحة المسوّرة',
+    altAluminiumYard: 'خردة ألمنيوم أمام حاوية شحن',
+
+    compTitle: 'مرخّصون. وموثّقون.',
+    compLicence: 'الرخصة التجارية',
+    compCard: 'بطاقة المنشأة',
+    compValid: 'صالحة حتى',
+    compActivity: 'النشاط المرخّص',
+    compActivityVal: 'تجارة الجملة في خردة ونفايات المعادن لإعادة التدوير',
+    compLine: 'نسخ مصدّقة من الرخصة التجارية وشهادة الغرفة وعقد الإيجار متاحة عند الطلب.',
+    compCta: 'اطلب ملف الامتثال',
+
+    contactTitle: 'تواصل مع الساحة.',
+    mapTitle: 'خريطة منطقة الصجعة الصناعية، الشارقة',
+    cMobile: 'جوال / واتساب',
+    cLandline: 'هاتف أرضي',
+    cEmail: 'البريد الإلكتروني',
+    cAddress: 'العنوان',
+    cAddressVal: 'منطقة الصجعة الصناعية، الشارقة، الإمارات العربية المتحدة',
+    fName: 'الاسم',
+    fCompany: 'الشركة',
+    fPhone: 'الهاتف / واتساب',
+    fMaterial: 'المادة',
+    fDetails: 'الكمية / التفاصيل',
+    mAluminium: 'ألمنيوم',
+    mCopper: 'نحاس',
+    mOther: 'معادن أخرى',
+    mCompliance: 'ملف الامتثال',
+    mGeneral: 'استفسار عام',
+    fSubmit: 'إرسال الاستفسار',
+    errName: 'يرجى إدخال اسمك.',
+    errPhone: 'يرجى إدخال رقم هاتف أو واتساب.',
+
+    fLicence: 'رقم الرخصة التجارية',
+    lLicensing: 'شروط الترخيص',
+    lVisit: 'سياسة زيارة الساحة',
+    copyright: '© 2026 نجمة الساحل',
+    waAria: 'تحدث معنا على واتساب',
+    close: 'إغلاق'
+  };
+
+  // Strings that only exist in script (both languages).
+  var JS = {
+    en: {
+      title: 'Najmat Al Sahel | Aluminium & Copper Scrap Trader, Sharjah',
+      description: 'Licensed wholesale aluminium and copper scrap trader in Al Sajaa Industrial Area, Sharjah, since 2016. 1,800 m² yard with 20ft and 40ft FCL loading.',
+      langBtn: 'العربية', langBtnLang: 'ar', langAria: 'Switch to Arabic',
+      menuOpen: 'Open menu', menuClose: 'Close menu',
+      enlarge: 'Enlarge: ',
+      waGreeting: 'Hello Najmat Al Sahel, I would like to enquire about scrap metal.',
+      quote: function (t, m, n) { return 'Spot quote request: ' + t + ' MT of ' + m + ' (≈ ' + n + ' × 20ft FCL).'; },
+      compliance: 'Please send the compliance pack (trade licence, chamber certificate, tenancy contract).',
+      visit: 'I would like to arrange a yard visit. Please share your visit policy.',
+      subject: 'Inquiry',
+      labels: { name: 'Name', company: 'Company', phone: 'Phone/WhatsApp', material: 'Material', details: 'Volume/Details' },
+      sentMail: 'Your email app should open with the inquiry ready to send. ',
+      sentApi: 'Thank you. Your inquiry has been sent.',
+      viaWa: 'Prefer WhatsApp? Send it there.',
+      fail: 'Something went wrong. Please call or WhatsApp us instead.'
+    },
+    ar: {
+      title: 'نجمة الساحل | تجارة خردة الألمنيوم والنحاس بالجملة، الشارقة',
+      description: 'تاجر جملة مرخّص لخردة الألمنيوم والنحاس في منطقة الصجعة الصناعية بالشارقة منذ 2016. ساحة مساحتها 1,800 م² مع تحميل حاويات 20 و40 قدماً.',
+      langBtn: 'EN', langBtnLang: 'en', langAria: 'Switch to English',
+      menuOpen: 'فتح القائمة', menuClose: 'إغلاق القائمة',
+      enlarge: 'تكبير: ',
+      waGreeting: 'مرحباً نجمة الساحل، أود الاستفسار عن خردة المعادن.',
+      quote: function (t, m, n) { return 'طلب سعر فوري: ' + t + ' طن متري من ' + m + ' (≈ ' + n + ' × حاوية 20 قدماً).'; },
+      compliance: 'يرجى إرسال ملف الامتثال (الرخصة التجارية، شهادة الغرفة، عقد الإيجار).',
+      visit: 'أرغب في ترتيب زيارة للساحة. يرجى تزويدي بسياسة الزيارة.',
+      subject: 'استفسار',
+      labels: { name: 'الاسم', company: 'الشركة', phone: 'الهاتف/واتساب', material: 'المادة', details: 'الكمية/التفاصيل' },
+      sentMail: 'سيُفتح تطبيق البريد لديك والاستفسار جاهز للإرسال. ',
+      sentApi: 'شكراً لك. تم إرسال استفسارك.',
+      viaWa: 'تفضّل واتساب؟ أرسله من هناك.',
+      fail: 'حدث خطأ. يرجى الاتصال بنا أو مراسلتنا على واتساب.'
     }
-  }, { passive: true });
+  };
 
-  // 3. Mobile Hamburger Navigation
-  const hamburger = document.querySelector('.hamburger-btn');
-  const navMenu = document.querySelector('.nav-menu');
+  var EN = {};
+  var lang = 'en';
 
-  if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-      const isOpen = navMenu.style.display === 'flex';
-      if (isOpen) {
-        navMenu.style.display = '';
-        hamburger.classList.remove('active');
-      } else {
-        navMenu.style.display = 'flex';
-        navMenu.style.flexDirection = 'column';
-        navMenu.style.position = 'fixed';
-        navMenu.style.top = '84px';
-        navMenu.style.left = '20px';
-        navMenu.style.right = '20px';
-        navMenu.style.background = '#FFFFFF';
-        navMenu.style.padding = '24px';
-        navMenu.style.borderRadius = '20px';
-        navMenu.style.boxShadow = '0 20px 50px rgba(15,23,42,0.15)';
-        navMenu.style.border = '1px solid rgba(184,115,51,0.2)';
-        hamburger.classList.add('active');
-      }
+  function $(sel, ctx) { return (ctx || document).querySelector(sel); }
+  function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
+  function t(key) { return lang === 'ar' && AR[key] != null ? AR[key] : EN[key]; }
+  function js() { return JS[lang]; }
+
+  var ATTRS = [['data-i18n-alt', 'alt'], ['data-i18n-aria', 'aria-label'], ['data-i18n-title', 'title']];
+
+  // Capture the English source strings once, straight from the markup.
+  function captureEnglish() {
+    $$('[data-i18n]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n');
+      if (!(k in EN)) EN[k] = el.textContent.trim();
     });
-
-    navMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 1024) {
-          navMenu.style.display = '';
-          hamburger.classList.remove('active');
-        }
+    ATTRS.forEach(function (pair) {
+      $$('[' + pair[0] + ']').forEach(function (el) {
+        var k = el.getAttribute(pair[0]);
+        if (!(k in EN)) EN[k] = el.getAttribute(pair[1]);
       });
     });
   }
 
-  // 4. Active Section Highlighting
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-menu a');
+  function setMeta(selector, attr, value) {
+    var el = $(selector);
+    if (el) el.setAttribute(attr, value);
+  }
 
-  window.addEventListener('scroll', () => {
-    const scrollPos = window.scrollY + 180;
-    sections.forEach(sec => {
-      const top = sec.offsetTop;
-      const height = sec.offsetHeight;
-      const id = sec.getAttribute('id');
-      if (scrollPos >= top && scrollPos < top + height) {
-        navLinks.forEach(link => {
-          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-        });
-      }
+  function applyLanguage(next, persist) {
+    lang = next === 'ar' ? 'ar' : 'en';
+    doc.lang = lang;
+    doc.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+    $$('[data-i18n]').forEach(function (el) { el.textContent = t(el.getAttribute('data-i18n')); });
+    ATTRS.forEach(function (pair) {
+      $$('[' + pair[0] + ']').forEach(function (el) { el.setAttribute(pair[1], t(el.getAttribute(pair[0]))); });
     });
-  }, { passive: true });
 
-  // 5. Hero Stats Counter Animation
-  const counters = document.querySelectorAll('[data-target]');
-  let hasCounted = false;
+    var s = js();
+    document.title = s.title;
+    setMeta('meta[name="description"]', 'content', s.description);
+    setMeta('link[rel="canonical"]', 'href', lang === 'ar' ? SITE + '?lang=ar' : SITE);
 
-  const countObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !hasCounted) {
-        hasCounted = true;
-        counters.forEach(counter => {
-          const target = +counter.getAttribute('data-target');
-          const suffix = counter.getAttribute('data-suffix') || '';
-          const duration = 1800;
-          const startTime = performance.now();
+    var btn = $('#lang-toggle');
+    if (btn) {
+      btn.textContent = s.langBtn;
+      btn.setAttribute('lang', s.langBtnLang);
+      btn.setAttribute('aria-label', s.langAria);
+    }
+    syncMenuLabel();
+    updateGalleryLabels();
+    updateWhatsAppLinks();
 
-          function updateCount(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-            const current = Math.floor(easeOutQuart * target);
-            counter.innerHTML = current.toLocaleString() + `<span>${suffix}</span>`;
+    var map = $('#map');
+    if (map) {
+      var src = map.getAttribute('src').replace(/hl=\w+/, 'hl=' + lang);
+      if (src !== map.getAttribute('src')) map.setAttribute('src', src);
+    }
 
-            if (progress < 1) {
-              requestAnimationFrame(updateCount);
-            }
-          }
-          requestAnimationFrame(updateCount);
-        });
-      }
+    if (persist) {
+      try { localStorage.setItem('nas-lang', lang); } catch (e) {}
+      try {
+        var url = new URL(location.href);
+        if (lang === 'ar') url.searchParams.set('lang', 'ar'); else url.searchParams.delete('lang');
+        history.replaceState(null, '', url.pathname + url.search + url.hash);
+      } catch (e) {}
+    }
+    doc.classList.remove('i18n-pending');
+  }
+
+  function updateWhatsAppLinks() {
+    var href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(js().waGreeting);
+    $$('[data-wa]').forEach(function (a) { a.setAttribute('href', href); });
+  }
+
+  function updateGalleryLabels() {
+    $$('.g').forEach(function (fig) {
+      var btn = $('.g-btn', fig);
+      var cap = $('figcaption [data-i18n]', fig);
+      if (btn && cap) btn.setAttribute('aria-label', js().enlarge + cap.textContent);
     });
-  }, { threshold: 0.3 });
-
-  const heroSection = document.querySelector('.hero-section');
-  if (heroSection) {
-    countObserver.observe(heroSection);
   }
 
-  // 6. Interactive Scrap Lot Estimator
-  const metalSelect = document.getElementById('calcMetal');
-  const tonnageInput = document.getElementById('calcTonnage');
-  const tonnageLabel = document.getElementById('calcTonnageVal');
-  const outputContainers = document.getElementById('calcOutput');
-  const calcBtn = document.getElementById('calcInquiryBtn');
+  /* ------------------------------------------------------------------------
+     Header: solid on scroll, mobile menu, active link
+     ------------------------------------------------------------------------ */
+  var header = $('.site-header');
+  var menuBtn = $('#menu-toggle');
+  var nav = $('#site-nav');
 
-  function updateEstimator() {
-    if (!tonnageInput || !outputContainers) return;
-    const tonnes = parseFloat(tonnageInput.value);
-    tonnageLabel.textContent = `${tonnes} MT`;
+  function onScroll() { header.classList.toggle('is-solid', window.scrollY > 24); }
 
-    // Standard 20ft container payload is approx 20-24 metric tonnes for scrap metals
-    const approxContainers = (tonnes / 21).toFixed(1);
-    const containerCount = approxContainers < 1 ? '< 1 Container (FCL)' : `~ ${approxContainers} x 20ft FCL`;
-    outputContainers.textContent = containerCount;
+  function syncMenuLabel() {
+    if (!menuBtn) return;
+    var open = menuBtn.getAttribute('aria-expanded') === 'true';
+    menuBtn.setAttribute('aria-label', open ? js().menuClose : js().menuOpen);
   }
 
-  if (tonnageInput) {
-    tonnageInput.addEventListener('input', updateEstimator);
-    metalSelect.addEventListener('change', updateEstimator);
-    updateEstimator();
+  function setMenu(open, returnFocus) {
+    doc.classList.toggle('menu-open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    syncMenuLabel();
+    if (open) {
+      var first = $('a', nav);
+      if (first) first.focus({ preventScroll: true });
+    } else if (returnFocus) {
+      menuBtn.focus();
+    }
   }
 
-  if (calcBtn) {
-    calcBtn.addEventListener('click', (e) => {
+  function initHeader() {
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    menuBtn.addEventListener('click', function () {
+      setMenu(menuBtn.getAttribute('aria-expanded') !== 'true');
+    });
+    $$('a', nav).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && doc.classList.contains('menu-open')) setMenu(false, true);
+    });
+    window.matchMedia('(min-width: 1080px)').addEventListener('change', function (mq) {
+      if (mq.matches) setMenu(false);
+    });
+
+    if (!('IntersectionObserver' in window)) return;
+    var links = $$('.nav a:not(.btn)');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var id = '#' + entry.target.id;
+        links.forEach(function (l) { l.classList.toggle('is-active', l.getAttribute('href') === id); });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    $$('main section[id]').forEach(function (s) { io.observe(s); });
+  }
+
+  // Floating WhatsApp appears once the hero's own WhatsApp button is out of view.
+  function initFab() {
+    var fab = $('.fab-wa');
+    var heroActions = $('.hero-actions');
+    if (!fab) return;
+    if (!heroActions || !('IntersectionObserver' in window)) { fab.classList.add('is-visible'); return; }
+    new IntersectionObserver(function (entries) {
+      fab.classList.toggle('is-visible', !entries[0].isIntersecting);
+    }).observe(heroActions);
+  }
+
+  /* ------------------------------------------------------------------------
+     Scroll reveal
+     ------------------------------------------------------------------------ */
+  function initReveal() {
+    var items = $$('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      items.forEach(function (el) { el.classList.add('is-in'); });
+      return;
+    }
+    items.forEach(function (el) {
+      var siblings = $$(':scope > .reveal', el.parentElement);
+      var i = siblings.indexOf(el);
+      if (i > 0) el.style.transitionDelay = Math.min(i, 4) * 90 + 'ms';
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    items.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ------------------------------------------------------------------------
+     Contact form prefill
+     ------------------------------------------------------------------------ */
+  var form = $('#inquiry');
+  var fMaterial = $('#f-material');
+  var fDetails = $('#f-details');
+
+  function goToForm() {
+    var contact = $('#contact');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    contact.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    setTimeout(function () { $('#f-name').focus({ preventScroll: true }); }, reduce ? 0 : 600);
+  }
+
+  // Only overwrite the details box if it's empty or we filled it ourselves.
+  function prefill(material, details) {
+    if (material) fMaterial.value = material;
+    if (details != null && (!fDetails.value.trim() || fDetails.dataset.auto === '1')) {
+      fDetails.value = details;
+      fDetails.dataset.auto = '1';
+    }
+  }
+
+  function initPrefill() {
+    fDetails.addEventListener('input', function () { fDetails.dataset.auto = '0'; });
+
+    $$('[data-material]').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        var m = el.getAttribute('data-material');
+        var details = null;
+        if (m === 'compliance') details = js().compliance;
+        if (el.hasAttribute('data-visit')) details = js().visit;
+        prefill(m, details);
+        goToForm();
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------------------
+     Container estimator
+     ------------------------------------------------------------------------ */
+  function initEstimator() {
+    var metal = $('#est-metal');
+    var vol = $('#est-volume');
+    var out = $('#est-output');
+
+    function tonnes() {
+      var v = parseFloat(vol.value);
+      return isFinite(v) && v > 0 ? v : 0;
+    }
+    function fcl() {
+      var n = tonnes() / MT_PER_20FT;
+      return n > 0 && n < 0.1 ? '< 0.1' : n.toFixed(1);
+    }
+    function render() {
+      out.textContent = '';
+      out.append('≈ ');
+      var b = document.createElement('b');
+      b.textContent = fcl();
+      out.append(b, ' × 20ft FCL');
+    }
+
+    vol.addEventListener('input', render);
+    vol.addEventListener('blur', function () {
+      var v = Math.min(5000, Math.max(1, Math.round(tonnes()) || 20));
+      vol.value = v;
+      render();
+    });
+    $$('.step').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var step = parseFloat(btn.getAttribute('data-step'));
+        var next = Math.round(tonnes() / 5) * 5 + step;
+        vol.value = Math.min(5000, Math.max(1, next));
+        render();
+      });
+    });
+
+    $('#est-quote').addEventListener('click', function () {
+      var label = metal.options[metal.selectedIndex].textContent.trim();
+      prefill(metal.value, js().quote(tonnes() || 20, label, fcl()));
+      goToForm();
+    });
+
+    render();
+  }
+
+  /* ------------------------------------------------------------------------
+     Inquiry form
+     ------------------------------------------------------------------------ */
+  function initForm() {
+    var status = $('#form-status');
+    var required = [
+      { input: $('#f-name'), err: $('#f-name-err'), ok: function (v) { return v.length >= 2; } },
+      { input: $('#f-phone'), err: $('#f-phone-err'), ok: function (v) { return v.replace(/\D/g, '').length >= 7; } }
+    ];
+
+    function check(r) {
+      var valid = r.ok(r.input.value.trim());
+      r.input.setAttribute('aria-invalid', String(!valid));
+      r.err.hidden = valid;
+      return valid;
+    }
+    required.forEach(function (r) {
+      r.input.addEventListener('blur', function () { if (r.input.value) check(r); });
+      r.input.addEventListener('input', function () { if (r.input.getAttribute('aria-invalid') === 'true') check(r); });
+    });
+
+    function setStatus(text, isError, waText) {
+      status.textContent = text;
+      status.classList.toggle('is-error', !!isError);
+      if (waText) {
+        var a = document.createElement('a');
+        a.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(waText);
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.textContent = js().viaWa;
+        status.appendChild(a);
+      }
+    }
+
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
-      const metal = metalSelect ? metalSelect.value : 'Aluminium Scrap';
-      const tonnes = tonnageInput ? tonnageInput.value : '20';
-      
-      // Auto pre-fill contact form
-      const productSelect = document.getElementById('inquiryProduct');
-      const messageField = document.getElementById('inquiryMessage');
-      if (productSelect) productSelect.value = metal;
-      if (messageField) {
-        messageField.value = `Hello Najmat Al Sahel team, I would like to request official spot pricing for ${tonnes} Metric Tonnes of ${metal} for pickup/loading at your Al Sajaa yard.`;
+
+      var firstInvalid = null;
+      required.forEach(function (r) { if (!check(r) && !firstInvalid) firstInvalid = r.input; });
+      if (firstInvalid) { firstInvalid.focus(); return; }
+
+      if ($('#f-website').value) return; // honeypot
+
+      var s = js();
+      var materialLabel = fMaterial.options[fMaterial.selectedIndex].textContent.trim();
+      var data = {
+        name: $('#f-name').value.trim(),
+        company: $('#f-company').value.trim(),
+        phone: $('#f-phone').value.trim(),
+        material: materialLabel,
+        details: fDetails.value.trim()
+      };
+      var body = [
+        s.labels.name + ': ' + data.name,
+        s.labels.company + ': ' + (data.company || '-'),
+        s.labels.phone + ': ' + data.phone,
+        s.labels.material + ': ' + data.material,
+        s.labels.details + ': ' + (data.details || '-')
+      ].join('\n');
+      var subject = s.subject + ': ' + materialLabel + ' / ' + (data.company || data.name);
+
+      var endpoint = form.getAttribute('data-endpoint');
+      var submitBtn = $('button[type="submit"]', form);
+
+      function viaMail() {
+        window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        setStatus(s.sentMail, false, body);
       }
-      
-      // Scroll to contact form smoothly
-      const contactSec = document.getElementById('contact');
-      if (contactSec) {
-        contactSec.scrollIntoView({ behavior: 'smooth' });
-      }
+
+      if (!endpoint) { viaMail(); return; }
+
+      submitBtn.disabled = true;
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(Object.assign({ _subject: subject, language: lang }, data))
+      }).then(function (res) {
+        if (!res.ok) throw new Error(res.status);
+        setStatus(s.sentApi);
+        form.reset();
+        fDetails.dataset.auto = '0';
+      }).catch(function () {
+        viaMail();
+      }).then(function () {
+        submitBtn.disabled = false;
+      });
     });
   }
 
-  // 7. Pinterest Pinboard Image Lightbox
-  const pinItems = document.querySelectorAll('.pin-item');
-  pinItems.forEach(pin => {
-    pin.addEventListener('click', () => {
-      const img = pin.querySelector('img');
-      const title = pin.querySelector('.pin-title')?.textContent || 'Facility View';
-      if (!img) return;
+  /* ------------------------------------------------------------------------
+     Gallery lightbox (native <dialog>)
+     ------------------------------------------------------------------------ */
+  function initLightbox() {
+    var dlg = $('#lightbox');
+    var img = $('img', dlg);
+    var cap = $('.lightbox-cap', dlg);
 
-      const overlay = document.createElement('div');
-      overlay.style.position = 'fixed';
-      overlay.style.inset = '0';
-      overlay.style.zIndex = '99999';
-      overlay.style.background = 'rgba(12, 21, 35, 0.9)';
-      overlay.style.backdropFilter = 'blur(16px)';
-      overlay.style.display = 'flex';
-      overlay.style.flexDirection = 'column';
-      overlay.style.alignItems = 'center';
-      overlay.style.justifyContent = 'center';
-      overlay.style.padding = '30px';
-      overlay.style.cursor = 'zoom-out';
-      overlay.style.animation = 'fadeIn 0.25s ease';
-
-      overlay.innerHTML = `
-        <div style="position:relative; max-width:900px; max-height:85vh;">
-          <img src="${img.src}" alt="${title}" style="max-width:100%; max-height:80vh; border-radius:16px; box-shadow:0 25px 60px rgba(0,0,0,0.4); object-fit:contain;" />
-          <div style="margin-top:14px; text-align:center; color:#FFFFFF; font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700;">
-            ${title} • Najmat Al Sahel Yard, Sharjah
-          </div>
-          <button style="position:absolute; top:-16px; right:-16px; width:40px; height:40px; border-radius:50%; background:#B87333; color:#fff; border:none; font-size:1.3rem; cursor:pointer; display:flex; align-items:center; justify-content:center;">&times;</button>
-        </div>
-      `;
-
-      document.body.appendChild(overlay);
-      document.body.style.overflow = 'hidden';
-
-      function closeLb() {
-        overlay.remove();
-        document.body.style.overflow = '';
-      }
-
-      overlay.addEventListener('click', closeLb);
-      document.addEventListener('keydown', function escListener(e) {
-        if (e.key === 'Escape') {
-          closeLb();
-          document.removeEventListener('keydown', escListener);
-        }
+    $$('.g-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var full = btn.getAttribute('data-full');
+        if (typeof dlg.showModal !== 'function') { window.open(full, '_blank', 'noopener'); return; }
+        var thumb = $('img', btn);
+        img.src = full;
+        img.alt = thumb.alt;
+        cap.textContent = $('figcaption [data-i18n]', btn.parentElement).textContent;
+        dlg.showModal();
       });
     });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg || e.target === img) dlg.close(); });
+    dlg.addEventListener('close', function () { img.removeAttribute('src'); });
+  }
+
+  /* ------------------------------------------------------------------------
+     Boot
+     ------------------------------------------------------------------------ */
+  captureEnglish();
+  applyLanguage(doc.lang === 'ar' ? 'ar' : 'en', false);
+
+  $('#lang-toggle').addEventListener('click', function () {
+    applyLanguage(lang === 'ar' ? 'en' : 'ar', true);
   });
 
-  // 8. Back to Top Button
-  const backToTopBtn = document.querySelector('.float-top');
-  if (backToTopBtn) {
-    window.addEventListener('scroll', () => {
-      backToTopBtn.classList.toggle('visible', window.scrollY > 400);
-    }, { passive: true });
-
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
-  // 9. Contact Inquiry Form with Mailto fallback
-  const contactForm = document.getElementById('tradeInquiryForm');
-  const toastMsg = document.getElementById('formToast');
-
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      // Honeypot bot protection
-      const hp = contactForm.querySelector('.honeypot-wrap input');
-      if (hp && hp.value) return;
-
-      const name = contactForm.querySelector('#inquiryName')?.value.trim();
-      const email = contactForm.querySelector('#inquiryEmail')?.value.trim();
-      const phone = contactForm.querySelector('#inquiryPhone')?.value.trim();
-      const company = contactForm.querySelector('#inquiryCompany')?.value.trim();
-      const product = contactForm.querySelector('#inquiryProduct')?.value;
-      const message = contactForm.querySelector('#inquiryMessage')?.value.trim();
-
-      if (!name || !email || !message) {
-        showToast('Please complete all required fields.', 'error');
-        return;
-      }
-
-      // Generate mailto link
-      const mailSubject = encodeURIComponent(`Trade Inquiry: ${product || 'Scrap Metal'} - ${company || name}`);
-      const mailBody = encodeURIComponent(
-        `NAJMAT AL SAHEL TRADE INQUIRY\n` +
-        `-----------------------------------------\n` +
-        `Client Name: ${name}\n` +
-        `Company: ${company || 'N/A'}\n` +
-        `Email: ${email}\n` +
-        `Phone/WhatsApp: ${phone || 'N/A'}\n` +
-        `Product of Interest: ${product || 'General Scrap Metal'}\n\n` +
-        `Requirements / Message:\n${message}\n\n` +
-        `Sent via Najmat Al Sahel Web Portal`
-      );
-
-      const mailtoUrl = `mailto:najmatalsahelalumcopper@gmail.com?subject=${mailSubject}&body=${mailBody}`;
-
-      showToast('Opening your email client to dispatch inquiry...', 'success');
-      window.location.href = mailtoUrl;
-
-      setTimeout(() => {
-        contactForm.reset();
-        updateEstimator();
-      }, 3000);
-    });
-  }
-
-  function showToast(text, type) {
-    if (!toastMsg) return;
-    toastMsg.textContent = text;
-    toastMsg.className = `form-toast ${type}`;
-    setTimeout(() => {
-      toastMsg.style.display = 'none';
-    }, 6000);
-  }
-
-  // 10. Duplicate Ticker Track for Seamless Infinity Scroll
-  const tickerTrack = document.querySelector('.ticker-track');
-  if (tickerTrack) {
-    tickerTrack.innerHTML += tickerTrack.innerHTML;
-  }
-});
-
-// Helper for product quick-select buttons
-function prefillInquiry(productName) {
-  const prodSelect = document.getElementById('inquiryProduct');
-  if (prodSelect) prodSelect.value = productName;
-  const contactSec = document.getElementById('contact');
-  if (contactSec) {
-    contactSec.scrollIntoView({ behavior: 'smooth' });
-  }
-}
-
-// Arabic toggle
-function toggleLanguage() {
-  alert('النسخة العربية قيد التحديث وسوف تتوفر قريباً — Arabic portal under final review.');
-}
+  initHeader();
+  initFab();
+  initReveal();
+  initPrefill();
+  initEstimator();
+  initForm();
+  initLightbox();
+})();
