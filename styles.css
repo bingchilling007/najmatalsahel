@@ -524,6 +524,8 @@ html[lang="ar"] .c-row dt { font-family: var(--font-ar); letter-spacing: 0; text
 .c-row a { color: var(--text); font-size: 1.02rem; padding-block: 4px; transition: color .2s; }
 .c-row a:hover { color: var(--copper-hi); }
 .c-email { word-break: break-all; font-size: 0.92rem !important; }
+.c-row a.c-map { flex-basis: 100%; font-size: 0.9rem; color: var(--copper-hi); text-decoration: underline; text-underline-offset: 3px; }
+.c-row a.c-map:hover { color: var(--text); }
 
 .form {
   background: var(--surface); border: 1px solid var(--line);
