@@ -259,16 +259,25 @@ html[lang="ar"] .stat-label { font-family: var(--font-ar); font-size: 0.85rem; l
 
 @media (min-width: 640px) {
   .hero-actions .btn { flex: 0 0 auto; }
-  .stats { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line); }
+  .stats { display: grid; grid-template-columns: repeat(2, 1fr); border-bottom: 1px solid var(--line); }
   .stat {
     position: relative; flex-direction: column-reverse; align-items: flex-start; justify-content: flex-end; gap: 6px;
     padding: 22px 24px 22px 0; border-bottom: 0;
   }
   .stat + .stat { padding-inline-start: 24px; border-inline-start: 1px solid var(--line); }
+  .stat:nth-child(2n+1) { padding-inline-start: 0; border-inline-start: 0; }
+  .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
   .stat::before {
     content: ""; position: absolute; inset-block-start: -1px; inset-inline-start: 0; width: 40px; height: 1px; background: var(--copper);
   }
   .stat-value { font-size: clamp(1.4rem, 2.8vw, 2.25rem); letter-spacing: -0.02em; }
+}
+
+@media (min-width: 1024px) {
+  .stats { grid-template-columns: repeat(4, 1fr); }
+  .stat:nth-child(n+2) { padding-inline-start: 24px; border-inline-start: 1px solid var(--line); }
+  .stat:nth-child(n+3) { border-top: 0; }
+  .stat-value { font-size: clamp(1.4rem, 2.2vw, 2.25rem); }
 }
 
 /* ==========================================================================

@@ -7,7 +7,7 @@
   var doc = document.documentElement;
   var SITE = 'https://najmatalsahelalum.com/';
   var EMAIL = 'najmatalsahelalumcopper@gmail.com';
-  var WHATSAPP = '971567665019';
+  var WHATSAPP = '971544707192';
   // Approximate scrap payload per 20ft FCL used by the estimator (metric tonnes).
   var MT_PER_20FT = 21;
 
@@ -33,6 +33,7 @@
     heroTitle2: 'تجارة بأصولها.',
     heroSub: 'تاجر جملة مرخّص لخردة المعادن في الشارقة منذ 2016.',
     statYears: 'سنوات في التجارة',
+    statTeam: 'الموظفون',
     statYard: 'ساحة مسوّرة',
     statFcl: 'تحميل حاويات كاملة',
 
@@ -88,7 +89,8 @@
 
     contactTitle: 'تواصل مع الساحة.',
     mapTitle: 'خريطة منطقة الصجعة الصناعية، الشارقة',
-    cMobile: 'جوال / واتساب',
+    cWhatsApp: 'واتساب',
+    cMobile: 'جوال',
     cLandline: 'هاتف أرضي',
     cEmail: 'البريد الإلكتروني',
     cAddress: 'العنوان',
